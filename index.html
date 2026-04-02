@@ -9,6 +9,11 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .product-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        /* Nuevos estilos para la lupa y el modal */
+        .zoom-cursor { cursor: zoom-in; }
+        #imageModal { display: none; }
+        #imageModal.active { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -39,13 +44,18 @@
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div>
                 <h2 class="text-3xl font-black text-slate-800 tracking-tight">Equipos en Vidriera</h2>
-                <p class="text-slate-500">Disponibilidad sujeta a zona de cobertura y verificación comercial.</p>
+                <p class="text-slate-500">Hacé clic en la imagen para ver el equipo completo.</p>
             </div>
         </div>
 
         <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             </div>
     </section>
+
+    <div id="imageModal" class="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4" onclick="closeModal()">
+        <span class="absolute top-5 right-5 text-white text-4xl font-bold cursor-pointer">&times;</span>
+        <img id="modalImg" src="" class="max-w-full max-h-full rounded-lg shadow-2xl object-contain">
+    </div>
 
     <footer id="contacto" class="bg-slate-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 text-center">
@@ -114,8 +124,8 @@
             products.forEach(p => {
                 const card = `
                     <div class="product-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
-                        <div class="h-48 bg-slate-200 overflow-hidden">
-                            <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover">
+                        <div class="h-48 bg-slate-200 overflow-hidden zoom-cursor" onclick="openModal('${p.imagen}')">
+                            <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                         </div>
                         <div class="p-5 flex-grow">
                             <h3 class="font-bold text-slate-800 text-lg mb-1">${p.nombre}</h3>
@@ -129,7 +139,7 @@
                                 </div>
                             </div>
                             <div class="bg-blue-50 py-4 rounded-xl border border-blue-100 text-center">
-                                <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">Aporte Diario</p>
+                                <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">Aporte Diario Sugerido</p>
                                 <p class="text-4xl font-black text-slate-900">$${p.cuotaDiaria.toLocaleString('es-AR')}</p>
                                 <p class="text-[10px] text-slate-500 mt-2 italic px-2 font-medium uppercase">30 Aportes - Comodato Presencial</p>
                             </div>
@@ -143,6 +153,21 @@
                 `;
                 grid.innerHTML += card;
             });
+        }
+
+        // FUNCIONES DEL MODAL (NUEVO)
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = imgSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Bloquea el scroll del fondo
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Habilita el scroll
         }
 
         function sendWhatsApp(productName) {
