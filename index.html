@@ -64,47 +64,46 @@
     </footer>
 
     <script>
-        // Array de 4 productos base
         const products = [
             {
                 id: 1,
-                nombre: "Equipo Profesional A",
-                desc: "Ideal para gestión de ventas y tareas administrativas exigentes.",
-                ram: "8GB DDR4",
-                cpu: "Intel Core i5 / Simil",
-                almacenamiento: "256GB SSD",
-                cuotaDiaria: 1500,
-                imagen: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&q=80&w=400"
+                nombre: "Motorola G05",
+                desc: "Rendimiento confiable y diseño moderno para el día a día.",
+                ram: "4GB RAM",
+                cpu: "Octa-Core",
+                almacenamiento: "64GB / 128GB",
+                cuotaDiaria: 950,
+                imagen: "img/moto-g05.jpg"
             },
             {
                 id: 2,
-                nombre: "Equipo Gestión Plus",
-                desc: "Rendimiento equilibrado para atención al público y facturación.",
-                ram: "4GB DDR4",
-                cpu: "Intel Core i3 / Simil",
-                almacenamiento: "128GB SSD",
-                cuotaDiaria: 1200,
-                imagen: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=400"
+                nombre: "Samsung Galaxy A07",
+                desc: "Excelente autonomía y pantalla clara para tu gestión comercial.",
+                ram: "4GB RAM",
+                cpu: "Octa-Core",
+                almacenamiento: "128GB",
+                cuotaDiaria: 1050,
+                imagen: "img/samsung-a07.jpg"
             },
             {
                 id: 3,
-                nombre: "Tablet Punto de Venta",
-                desc: "Versatilidad y movilidad para toma de pedidos y control de stock.",
-                ram: "4GB RAM",
-                cpu: "Octa-Core 2.0GHz",
-                almacenamiento: "64GB Expandible",
-                cuotaDiaria: 800,
-                imagen: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=400"
+                nombre: "Motorola G15",
+                desc: "Velocidad y potencia extra para aplicaciones exigentes.",
+                ram: "6GB RAM",
+                cpu: "Octa-Core Pro",
+                almacenamiento: "128GB",
+                cuotaDiaria: 1350,
+                imagen: "img/moto-g15.jpg"
             },
             {
                 id: 4,
-                nombre: "Notebook Emprendedor",
-                desc: "Potencia portátil para dueños de negocios en movimiento.",
-                ram: "12GB DDR4",
-                cpu: "AMD Ryzen 5 / Simil",
-                almacenamiento: "480GB SSD",
-                cuotaDiaria: 2000,
-                imagen: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400"
+                nombre: "Samsung Galaxy A16",
+                desc: "Experiencia premium con la mayor conectividad para tu negocio.",
+                ram: "8GB RAM",
+                cpu: "Exynos Pro",
+                almacenamiento: "256GB",
+                cuotaDiaria: 1650,
+                imagen: "img/samsung-a16.jpg"
             }
         ];
 
@@ -118,38 +117,23 @@
                         <div class="h-48 bg-slate-200 overflow-hidden">
                             <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover">
                         </div>
-                        
                         <div class="p-5 flex-grow">
                             <h3 class="font-bold text-slate-800 text-lg mb-1">${p.nombre}</h3>
                             <p class="text-slate-500 text-xs mb-4 leading-relaxed">${p.desc}</p>
-                            
                             <div class="space-y-2 mb-5">
                                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-1">Detalles Principales</p>
-                                <div class="grid grid-cols-1 gap-1 text-xs">
-                                    <div class="flex justify-between text-slate-600">
-                                        <span class="font-medium">Procesador:</span>
-                                        <span>${p.cpu}</span>
-                                    </div>
-                                    <div class="flex justify-between text-slate-600">
-                                        <span class="font-medium">Memoria RAM:</span>
-                                        <span>${p.ram}</span>
-                                    </div>
-                                    <div class="flex justify-between text-slate-600">
-                                        <span class="font-medium">Espacio/Sistema:</span>
-                                        <span>${p.almacenamiento}</span>
-                                    </div>
+                                <div class="grid grid-cols-1 gap-1 text-xs text-slate-600">
+                                    <div class="flex justify-between"><span>Procesador:</span><span>${p.cpu}</span></div>
+                                    <div class="flex justify-between"><span>Memoria RAM:</span><span>${p.ram}</span></div>
+                                    <div class="flex justify-between"><span>Espacio/Sistema:</span><span>${p.almacenamiento}</span></div>
                                 </div>
                             </div>
-
                             <div class="bg-blue-50 py-4 rounded-xl border border-blue-100 text-center">
                                 <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">Aporte Diario Sugerido</p>
                                 <p class="text-4xl font-black text-slate-900">$${p.cuotaDiaria.toLocaleString('es-AR')}</p>
-                                <p class="text-[10px] text-slate-500 mt-2 italic px-2 font-medium uppercase">
-                                    30 Aportes - Comodato Presencial
-                                </p>
+                                <p class="text-[10px] text-slate-500 mt-2 italic px-2 font-medium uppercase">30 Aportes - Comodato Presencial</p>
                             </div>
                         </div>
-
                         <div class="p-5 pt-0">
                             <button onclick="sendWhatsApp('${p.nombre}')" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
                                 📱 Consultar disponibilidad en zona
@@ -162,12 +146,11 @@
         }
 
         function sendWhatsApp(productName) {
-            const phone = "5491122334455"; // Reemplazalo por tu número real
-            const msg = encodeURIComponent(`Hola EQUIPOALDIA! Vi en la web el equipo *${productName}* bajo la modalidad de aporte diario. Quisiera consultar disponibilidad y requisitos para mi comercio.`);
+            const phone = "5491122334455"; // TU NÚMERO
+            const msg = encodeURIComponent(`Hola EQUIPOALDIA! Consulto disponibilidad del equipo *${productName}* bajo la modalidad de aporte diario para mi comercio.`);
             window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
         }
 
-        // Iniciar renderizado
         renderProducts();
     </script>
 </body>
