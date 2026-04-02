@@ -3,49 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EQUIPOALDIA | Vidriera Digital para Comercios</title>
+    <title>EQUIPOALDIA | Tecnología y Hogar al Día</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
         .product-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .gradient-brand { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+        .zoom-cursor { cursor: zoom-in; }
+        #imageModal { display: none; }
+        #imageModal.active { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
-            <div class="text-2xl font-black text-blue-700 tracking-tighter">EQUIPOALDIA</div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#catalogo" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Equipos Disponibles</a>
-                <a href="#contacto" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Contacto</a>
+            <div class="text-2xl font-black text-blue-700">EQUIPOALDIA</div>
+            <div class="flex space-x-4">
+                <a href="#catalogo" class="text-sm font-semibold text-slate-600">Catálogo</a>
+                <a href="#contacto" class="text-sm font-semibold text-slate-600">Contacto</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-slate-900 py-16 px-4">
+    <header class="gradient-brand py-16 px-4 text-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
-                Equipamiento Tecnológico <br><span class="text-blue-400">para tu Comercio</span>
-            </h1>
-            <p class="text-slate-400 text-lg mb-8">
-                Accedé a los mejores equipos mediante nuestra modalidad de comodato con aporte diario. 
-                Sin trámites complejos, gestión 100% presencial en tu local.
-            </p>
+            <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">Tecnología al Día</h1>
+            <p class="text-blue-100 text-lg opacity-90">Equipamiento tecnológico para tu comercio mediante aporte diario y gestión presencial.</p>
         </div>
     </header>
 
-    <section id="catalogo" class="max-w-7xl mx-auto px-4 py-16">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-            <div>
-                <h2 class="text-3xl font-black text-slate-800 tracking-tight">Equipos en Vidriera</h2>
-                <p class="text-slate-500">Disponibilidad sujeta a zona de cobertura y verificación comercial.</p>
-            </div>
+    <section id="catalogo" class="max-w-7xl mx-auto px-4 py-12">
+        <div class="mb-10">
+            <h2 class="text-3xl font-black text-slate-800 tracking-tight">Equipos en Vidriera</h2>
+            <p class="text-slate-500">Hacé clic en la imagen para ver el equipo en detalle.</p>
         </div>
 
         <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             </div>
     </section>
+
+    <div id="imageModal" class="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4" onclick="closeModal()">
+        <span class="absolute top-5 right-5 text-white text-4xl font-bold cursor-pointer">&times;</span>
+        <img id="modalImg" src="" class="max-w-full max-h-full rounded-lg shadow-2xl object-contain">
+    </div>
 
     <footer id="contacto" class="bg-slate-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 text-center">
@@ -53,12 +56,10 @@
             <p class="text-slate-400 text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
                 Esta plataforma funciona exclusivamente como una <strong>vidriera digital informativa</strong>. 
                 Las imágenes y montos son de carácter ilustrativo. La entrega de equipos se realiza bajo la modalidad de comodato, 
-                sujeta a la firma de contrato físico de forma presencial en el establecimiento del cliente. 
-                No se realizan transacciones monetarias ni contrataciones a través de este sitio web.
+                sujeta a la firma de contrato físico de forma presencial en el establecimiento del cliente.
             </p>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 italic">
-                <p>© 2026 EQUIPOALDIA - Quilmes, Buenos Aires.</p>
-                <p>Servicio exclusivo para Comercios y Emprendedores.</p>
+            <div class="border-t border-slate-800 pt-8 text-xs text-slate-500 italic">
+                © 2026 EQUIPOALDIA - Quilmes, Buenos Aires.
             </div>
         </div>
     </footer>
@@ -68,40 +69,32 @@
             {
                 id: 1,
                 nombre: "Motorola G05",
-                desc: "Rendimiento confiable y diseño moderno para el día a día.",
-                ram: "4GB RAM",
-                cpu: "Octa-Core",
-                almacenamiento: "64GB / 128GB",
+                desc: "Rendimiento confiable y diseño moderno.",
+                ram: "4GB RAM", cpu: "Octa-Core", almacenamiento: "128GB",
                 cuotaDiaria: 950,
                 imagen: "img/moto-g05.jpg"
             },
             {
                 id: 2,
                 nombre: "Samsung Galaxy A07",
-                desc: "Excelente autonomía y pantalla clara para tu gestión comercial.",
-                ram: "4GB RAM",
-                cpu: "Octa-Core",
-                almacenamiento: "128GB",
+                desc: "Excelente autonomía para tu gestión.",
+                ram: "4GB RAM", cpu: "Octa-Core", almacenamiento: "128GB",
                 cuotaDiaria: 1050,
                 imagen: "img/samsung-a07.jpg"
             },
             {
                 id: 3,
                 nombre: "Motorola G15",
-                desc: "Velocidad y potencia extra para aplicaciones exigentes.",
-                ram: "6GB RAM",
-                cpu: "Octa-Core Pro",
-                almacenamiento: "128GB",
+                desc: "Potencia extra para tu negocio.",
+                ram: "6GB RAM", cpu: "Octa-Core Pro", almacenamiento: "128GB",
                 cuotaDiaria: 1350,
                 imagen: "img/moto-g15.jpg"
             },
             {
                 id: 4,
                 nombre: "Samsung Galaxy A16",
-                desc: "Experiencia premium con la mayor conectividad para tu negocio.",
-                ram: "8GB RAM",
-                cpu: "Exynos Pro",
-                almacenamiento: "256GB",
+                desc: "Experiencia premium y gran conectividad.",
+                ram: "8GB RAM", cpu: "Exynos Pro", almacenamiento: "256GB",
                 cuotaDiaria: 1650,
                 imagen: "img/samsung-a16.jpg"
             }
@@ -114,44 +107,12 @@
             products.forEach(p => {
                 const card = `
                     <div class="product-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
-                        <div class="h-48 bg-slate-200 overflow-hidden">
-                            <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover">
+                        <div class="h-48 bg-slate-200 overflow-hidden zoom-cursor" onclick="openModal('${p.imagen}')">
+                            <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                         </div>
                         <div class="p-5 flex-grow">
                             <h3 class="font-bold text-slate-800 text-lg mb-1">${p.nombre}</h3>
                             <p class="text-slate-500 text-xs mb-4 leading-relaxed">${p.desc}</p>
+                            
                             <div class="space-y-2 mb-5">
-                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-1">Detalles Principales</p>
-                                <div class="grid grid-cols-1 gap-1 text-xs text-slate-600">
-                                    <div class="flex justify-between"><span>Procesador:</span><span>${p.cpu}</span></div>
-                                    <div class="flex justify-between"><span>Memoria RAM:</span><span>${p.ram}</span></div>
-                                    <div class="flex justify-between"><span>Espacio/Sistema:</span><span>${p.almacenamiento}</span></div>
-                                </div>
-                            </div>
-                            <div class="bg-blue-50 py-4 rounded-xl border border-blue-100 text-center">
-                                <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">Aporte Diario Sugerido</p>
-                                <p class="text-4xl font-black text-slate-900">$${p.cuotaDiaria.toLocaleString('es-AR')}</p>
-                                <p class="text-[10px] text-slate-500 mt-2 italic px-2 font-medium uppercase">30 Aportes - Comodato Presencial</p>
-                            </div>
-                        </div>
-                        <div class="p-5 pt-0">
-                            <button onclick="sendWhatsApp('${p.nombre}')" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
-                                📱 Consultar disponibilidad en zona
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.innerHTML += card;
-            });
-        }
-
-        function sendWhatsApp(productName) {
-            const phone = "5491122334455"; // TU NÚMERO
-            const msg = encodeURIComponent(`Hola EQUIPOALDIA! Consulto disponibilidad del equipo *${productName}* bajo la modalidad de aporte diario para mi comercio.`);
-            window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
-        }
-
-        renderProducts();
-    </script>
-</body>
-</html>
+                                <p class="text-
