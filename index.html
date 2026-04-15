@@ -71,6 +71,79 @@
     <script>
         // Array de productos corregido y unificado
         const products = [
+            {
+                imagen: "https://via.placeholder.com/400x300?text=Celular+Motorola",
+                nombre: "Motorola Moto G54",
+                desc: "Equipo ágil para gestionar WhatsApp Business y redes de tu local.",
+                label1: "Almacenamiento", spec1: "128 GB",
+                label2: "Memoria RAM", spec2: "4 GB",
+                label3: "Conectividad", spec3: "5G",
+                cuotaDiaria: 1800
+            },
+            {
+                imagen: "https://via.placeholder.com/400x300?text=Celular+Samsung",
+                nombre: "Samsung Galaxy A15",
+                desc: "Ideal para cobros con aplicaciones y manejo de inventario.",
+                label1: "Pantalla", spec1: "6.5\" Super AMOLED",
+                label2: "Batería", spec2: "5000 mAh",
+                label3: "Cámara", spec3: "50 MP",
+                cuotaDiaria: 2100
+            },
+            {
+                imagen: "https://via.placeholder.com/400x300?text=Contadora+de+Billetes",
+                nombre: "Contadora de Billetes Pro",
+                desc: "Agilizá el cierre de caja y evitá errores humanos al contar el efectivo.",
+                label1: "Velocidad", spec1: "1000 u/min",
+                label2: "Detección", spec2: "UV / MG / IR",
+                label3: "Bandeja", spec3: "200 billetes",
+                cuotaDiaria: 1200
+            },
+            {
+                imagen: "https://via.placeholder.com/400x300?text=Freidora+Electrica",
+                nombre: "Freidora Industrial 8L",
+                desc: "Perfecta para sumar opciones rápidas en tu emprendimiento gastronómico.",
+                label1: "Capacidad", spec1: "8 Litros",
+                label2: "Potencia", spec2: "2500 W",
+                label3: "Material", spec3: "Acero Inox.",
+                cuotaDiaria: 1500
+            },
+            {
+                imagen: "https://via.placeholder.com/400x300?text=Cafetera+Express",
+                nombre: "Cafetera Express Comercial",
+                desc: "Aumentá el ticket promedio ofreciendo café de calidad a tus clientes.",
+                label1: "Presión", spec1: "15 Bares",
+                label2: "Capacidad Agua", spec2: "1.5 Litros",
+                label3: "Vaporizador", spec3: "Sí",
+                cuotaDiaria: 1900
+            },
+            {
+                imagen: "https://via.placeholder.com/400x300?text=Caja+Registradora",
+                nombre: "Caja Registradora Térmica",
+                desc: "Control total de tus ventas diarias con impresión rápida de tickets.",
+                label1: "Impresión", spec1: "Térmica 58mm",
+                label2: "Departamentos", spec2: "Hasta 16",
+                label3: "Cajón dinero", spec3: "Incluido",
+                cuotaDiaria: 1300
+            },
+            {
+                imagen: "https://via.placeholder.com/400x300?text=Lector+de+Barras",
+                nombre: "Kit Lector Código de Barras",
+                desc: "Optimizá el tiempo de cobro en mostrador con lectura láser precisa.",
+                label1: "Conexión", spec1: "USB Inalámbrico",
+                label2: "Velocidad", spec2: "300 scans/seg",
+                label3: "Soporte", spec3: "Incluido",
+                cuotaDiaria: 600
+            },
+            {
+                imagen: "https://via.placeholder.com/400x300?text=Balanza+Comercial",
+                nombre: "Balanza Comercial Digital",
+                desc: "Pesaje exacto para despensas, verdulerías o fiambrerías.",
+                label1: "Capacidad Max", spec1: "40 Kg",
+                label2: "Precisión", spec2: "5 Gramos",
+                label3: "Funciones", spec3: "Suma / Tara",
+                cuotaDiaria: 950
+            }
+        ];
 
         function renderProducts() {
             const grid = document.getElementById('productGrid');
@@ -111,7 +184,7 @@
         }
 
         function sendWhatsApp(productName) {
-            const phone = "5491122334455"; // TU NÚMERO REAL AQUÍ
+            const phone = "5491122334455"; // ACORDATE DE PONER TU NÚMERO REAL AQUÍ
             const msg = encodeURIComponent(`Hola EQUIPOALDIA! Soy comerciante y consulto disponibilidad para una visita comercial por el equipo *${productName}* bajo la modalidad de cuota diaria presencial.`);
             window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
         }
