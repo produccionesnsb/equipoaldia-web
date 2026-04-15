@@ -1,1 +1,74 @@
+<script>
+    const products =,
+            cuotaDiaria: 3200,
+            imagen: "img/gabeta.jpg"
+        },
+        {
+            id: 6,
+            nombre: "Contadora de Billetes Gadnic",
+            desc: "Velocidad y seguridad extrema para tu cierre de caja diario.",
+            specs:,
+            cuotaDiaria: 4000,
+            imagen: "img/contadora.jpg"
+        },
+        {
+            id: 7,
+            nombre: "Cafetera Oster® PrimaLatte™",
+            desc: "Extracción profesional con bomba italiana y panel táctil.",
+            specs:,
+            cuotaDiaria: 16000,
+            imagen: "img/cafetera.jpg"
+        },
+        {
+            id: 8,
+            nombre: "Freidora Industrial 11L",
+            desc: "Potencia en acero inoxidable para alta producción gastronómica.",
+            specs:,
+            cuotaDiaria: 13500,
+            imagen: "img/freidora.jpg"
+        }
+    ];
 
+    function renderProducts() {
+        const grid = document.getElementById('productGrid');
+        grid.innerHTML = '';
+        
+        products.forEach(p => {
+            const specsHtml = p.specs.map(s => `
+                <div class="flex justify-between border-b border-slate-50 py-1">
+                    <span class="text-slate-400">${s.label}:</span>
+                    <span class="font-medium text-slate-700">${s.valor}</span>
+                </div>
+            `).join('');
+
+            const card = `
+                <div class="product-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
+                    <div class="h-48 bg-slate-100 overflow-hidden group">
+                        <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-contain p-4 group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-slate-800 text-lg mb-1">${p.nombre}</h3>
+                        <p class="text-slate-500 text-xs mb-4 leading-relaxed">${p.desc}</p>
+                        <div class="space-y-1 mb-5">
+                            <p class="text-[9px] font-bold text-blue-500 uppercase tracking-widest mb-2">Ficha Técnica</p>
+                            <div class="text-[11px] text-slate-600">
+                                ${specsHtml}
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 py-4 rounded-xl border border-slate-100 text-center">
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Cuota Diaria Fija</p>
+                            <p class="text-3xl font-black text-slate-900">$${p.cuotaDiaria.toLocaleString('es-AR')}</p>
+                            <p class="text-[9px] text-blue-600 mt-2 font-bold uppercase">Exclusivo Comercios - Gestión en Local</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="sendWhatsApp('${p.nombre}')" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                            📱 Consultar visita comercial
+                        </button>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += card;
+        });
+    }
+</script>
