@@ -9,7 +9,7 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
        .product-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-       .product-card:hover { transform: translateY(-8px); shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+       .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -36,7 +36,7 @@
                 Equipamiento Tecnológico <br><span class="text-blue-500">con Cuota Diaria Fija</span>
             </h1>
             <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-                Accedé a los mejores equipos sin trámites complejos. Gestión 100% presencial en tu local comercial de Zona Sur.
+                Accedé a los mejores equipos sin trámites complejos. Gestión 100% presencial en tu local comercial.
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-4">
                 <a href="#catalogo" class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-900/20">
@@ -61,15 +61,13 @@
             <div class="text-3xl font-black mb-6 tracking-tighter">EQUIPOALDIA</div>
             <p class="text-slate-400 text-sm max-w-3xl mx-auto mb-12 leading-relaxed">
                 EQUIPOALDIA opera exclusivamente como una <strong>vidriera digital informativa B2B</strong>. 
-                Las imágenes y montos son ilustrativos. La entrega de equipos se realiza bajo modalidad de comodato con cargo, 
-                sujeta a la firma de contrato físico presencial en el local comercial del interesado. 
-                No realizamos ventas a particulares ni cobros online.
+                Las imágenes y montos son ilustrativos. La entrega de equipos se realiza bajo contrato de comodato presencial.
             </p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto">
                 <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
-                    <p class="text-blue-400 font-black mb-2 text-xs uppercase tracking-widest">Atención Presencial</p>
-                    <p class="text-sm font-medium">Quilmes - Bernal - Berazategui - Varela</p>
+                    <p class="text-blue-400 font-black mb-2 text-xs uppercase tracking-widest">Cobertura Sur</p>
+                    <p class="text-sm font-medium">Quilmes - Berazategui - Varela</p>
                 </div>
                 <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
                     <p class="text-blue-400 font-black mb-2 text-xs uppercase tracking-widest">Requisitos</p>
@@ -83,12 +81,13 @@
 
             <div class="border-t border-slate-800 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-500 font-bold uppercase tracking-widest">
                 <p>© 2026 EQUIPOALDIA - Gestión Integral para el Comercio.</p>
-                <p>Quilmes, Buenos Aires, Argentina.</p>
+                <p>Buenos Aires, Argentina.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Array de productos verificado
         const products =,
                 cuotaDiaria: 950,
                 imagen: "img/moto-g05.jpg"
@@ -96,7 +95,7 @@
             {
                 id: 2,
                 nombre: "Samsung Galaxy A07",
-                desc: "Excelente autonomía y pantalla clara para tu gestión de ventas.",
+                desc: "Excelente autonomía y pantalla clara para ventas.",
                 specs:,
                 cuotaDiaria: 1050,
                 imagen: "img/samsung-a07.jpg"
@@ -104,7 +103,7 @@
             {
                 id: 3,
                 nombre: "Motorola G15",
-                desc: "Velocidad y potencia extra para aplicaciones comerciales exigentes.",
+                desc: "Velocidad extra para aplicaciones exigentes.",
                 specs:,
                 cuotaDiaria: 1350,
                 imagen: "img/moto-g15.jpg"
@@ -112,16 +111,15 @@
             {
                 id: 4,
                 nombre: "Samsung Galaxy A16",
-                desc: "Experiencia premium con la mayor conectividad para tu negocio.",
+                desc: "Experiencia premium y máxima conectividad.",
                 specs:,
                 cuotaDiaria: 1650,
                 imagen: "img/samsung-a16.jpg"
             },
-            // Línea Equipamiento Comercial
             {
                 id: 5,
                 nombre: "Gabeta de Dinero Metálica",
-                desc: "Estructura robusta de acero con pintura epoxi de alta resistencia.",
+                desc: "Estructura robusta de acero con pintura epoxi.",
                 specs:,
                 cuotaDiaria: 3200,
                 imagen: "img/gabeta.jpg"
@@ -129,7 +127,7 @@
             {
                 id: 6,
                 nombre: "Contadora de Billetes Gadnic",
-                desc: "Velocidad y seguridad profesional para tu cierre de caja diario.",
+                desc: "Velocidad y seguridad para tu cierre de caja diario.",
                 specs:,
                 cuotaDiaria: 4000,
                 imagen: "img/contadora.jpg"
@@ -137,7 +135,7 @@
             {
                 id: 7,
                 nombre: "Cafetera Oster® PrimaLatte™",
-                desc: "Extracción profesional con bomba italiana de 19 bares y panel táctil.",
+                desc: "Extracción profesional con bomba de 19 bares.",
                 specs:,
                 cuotaDiaria: 16000,
                 imagen: "img/cafetera.jpg"
@@ -145,7 +143,7 @@
             {
                 id: 8,
                 nombre: "Freidora Industrial 11L",
-                desc: "Potencia en acero inoxidable AISI 430/201 para alta producción.",
+                desc: "Potencia en acero inoxidable para alta producción.",
                 specs:,
                 cuotaDiaria: 13500,
                 imagen: "img/freidora.jpg"
@@ -154,6 +152,7 @@
 
         function renderProducts() {
             const grid = document.getElementById('productGrid');
+            if(!grid) return;
             grid.innerHTML = '';
             
             products.forEach(p => {
@@ -193,7 +192,7 @@
                         </div>
                         <div class="p-6 pt-0">
                             <button onclick="sendWhatsApp('${p.nombre}')" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-blue-600 transition-colors shadow-lg shadow-slate-200">
-                                Consultar Visita Comercial
+                                📱 Consultar Visita Comercial
                             </button>
                         </div>
                     </div>
@@ -208,7 +207,8 @@
             window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
         }
 
-        renderProducts();
+        // Ejecución al cargar
+        document.addEventListener('DOMContentLoaded', renderProducts);
     </script>
 </body>
 </html>
