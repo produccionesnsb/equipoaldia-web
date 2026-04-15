@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUIPOALDIA | Vidriera Digital para Comercios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+      .product-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+      .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
 
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="text-2xl font-black text-blue-700 tracking-tighter leading-none">EQUIPOALDIA</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Equipamiento Comercial</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#catalogo" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition">Equipos en Vidriera</a>
+                <a href="#contacto" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-slate-900 py-20 px-4 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block bg-blue-600/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-6">
+                Exclusivo para Comercios y Emprendedores
+            </span>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+                Equipamiento Tecnológico <br><span class="text-blue-500">con Cuota Diaria Fija</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                Accedé a los mejores equipos sin trámites complejos. Gestión 100% presencial en tu local comercial.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#catalogo" class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-900/20">
+                    Ver Equipos Disponibles
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="catalogo" class="max-w-7xl mx-auto px-4 py-20">
+        <div class="border-l-4 border-blue-600 pl-6 mb-16">
+            <h2 class="text-4xl font-black text-slate-800 tracking-tight mb-2">Vidriera de Stock</h2>
+            <p class="text-slate-500 font-medium italic">Disponibilidad sujeta a zona de cobertura y verificación comercial presencial.</p>
+        </div>
+
+        <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            </div>
+    </section>
+
+    <footer id="contacto" class="bg-slate-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="text-3xl font-black mb-6 tracking-tighter">EQUIPOALDIA</div>
+            <p class="text-slate-400 text-sm max-w-3xl mx-auto mb-12 leading-relaxed">
+                EQUIPOALDIA opera exclusivamente como una <strong>vidriera digital informativa B2B</strong>. 
+                Las imágenes y montos son ilustrativos. La entrega de equipos se realiza bajo contrato de comodato presencial.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-4xl mx-auto">
+                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+                    <p class="text-blue-400 font-black mb-2 text-xs uppercase tracking-widest">Cobertura Sur</p>
+                    <p class="text-sm font-medium">Quilmes - Berazategui - Varela</p>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700">
+                    <p class="text-blue-400 font-black mb-2 text-xs uppercase tracking-widest">Requisitos</p>
+                    <p class="text-sm font-medium">CUIT Comercial / Local a la calle</p>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 flex flex-col items-center justify-center">
+                    <p class="text-blue-400 font-black mb-2 text-xs uppercase tracking-widest text-center">Data Fiscal</p>
+                    <div class="w-16 h-20 bg-slate-700 rounded border border-dashed border-slate-600 flex items-center justify-center italic text-[8px] text-slate-500">QR ARCA</div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-500 font-bold uppercase tracking-widest">
+                <p>© 2026 EQUIPOALDIA - Gestión Integral para el Comercio.</p>
+                <p>Buenos Aires, Argentina.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Array de productos con corrección de sintaxis y datos actualizados
+        const products =,
+                cuotaDiaria: 950,
+                imagen: "img/moto-g05.jpg"
+            },
+            {
+                id: 2,
+                nombre: "Samsung Galaxy A07",
+                desc: "Excelente autonomía y pantalla clara para gestión de ventas.",
+                specs:,
+                cuotaDiaria: 1050,
+                imagen: "img/samsung-a07.jpg"
+            },
+            {
+                id: 3,
+                nombre: "Motorola G15",
+                desc: "Velocidad extra para aplicaciones comerciales exigentes.",
+                specs:,
+                cuotaDiaria: 1350,
+                imagen: "img/moto-g15.jpg"
+            },
+            {
+                id: 4,
+                nombre: "Samsung Galaxy A16",
+                desc: "Experiencia premium y máxima conectividad para tu negocio.",
+                specs:,
+                cuotaDiaria: 1650,
+                imagen: "img/samsung-a16.jpg"
+            },
+            {
+                id: 5,
+                nombre: "Gabeta de Dinero Metálica",
+                desc: "Estructura robusta de acero con pintura epoxi de alta resistencia.",
+                specs:,
+                cuotaDiaria: 3200,
+                imagen: "img/gabeta.jpg"
+            },
+            {
+                id: 6,
+                nombre: "Contadora de Billetes Gadnic",
+                desc: "Velocidad y seguridad profesional para tu cierre de caja diario.",
+                specs:,
+                cuotaDiaria: 4000,
+                imagen: "img/contadora.jpg"
+            },
+            {
+                id: 7,
+                nombre: "Cafetera Oster® PrimaLatte™",
+                desc: "Extracción profesional con bomba de 19 bares y panel táctil.",
+                specs:,
+                cuotaDiaria: 16000,
+                imagen: "img/cafetera.jpg"
+            },
+            {
+                id: 8,
+                nombre: "Freidora Industrial 11L",
+                desc: "Potencia en acero inoxidable para alta producción gastronómica.",
+                specs:,
+                cuotaDiaria: 13500,
+                imagen: "img/freidora.jpg"
+            }
+        ];
+
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            
+            products.forEach(p => {
+                const specsHtml = p.specs.map(s => `
+                    <div class="flex justify-between border-b border-slate-50 py-1">
+                        <span class="text-slate-400 font-medium">${s.label}:</span>
+                        <span class="font-bold text-slate-700">${s.valor}</span>
+                    </div>
+                `).join('');
+
+                const card = `
+                    <div class="product-card bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
+                        <div class="h-52 bg-slate-100 overflow-hidden flex items-center justify-center p-6 group">
+                            <img src="${p.imagen}" alt="${p.nombre}" class="max-w-full max-h-full object-contain group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <h3 class="font-black text-slate-800 text-lg mb-1 leading-tight">${p.nombre}</h3>
+                            <p class="text-slate-500 text-[11px] mb-6 leading-relaxed font-medium">${p.desc}</p>
+                            
+                            <div class="space-y-1 mb-8">
+                                <p class="text-[9px] font-black text-blue-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                    <span class="w-4 h-[2px] bg-blue-500"></span> Ficha Técnica
+                                </p>
+                                <div class="text-[11px] text-slate-600">
+                                    ${specsHtml}
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50/50 p-5 rounded-2xl border border-blue-100 text-center mb-4">
+                                <p class="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] mb-1">Cuota Diaria Fija</p>
+                                <div class="flex items-center justify-center gap-1">
+                                    <span class="text-lg font-bold text-slate-900">$</span>
+                                    <span class="text-4xl font-black text-slate-900 tracking-tighter">${p.cuotaDiaria.toLocaleString('es-AR')}</span>
+                                </div>
+                                <p class="text-[9px] text-slate-400 mt-2 font-bold uppercase tracking-tighter">Exclusivo Comercios - Gestión en Local</p>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="sendWhatsApp('${p.nombre}')" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-blue-600 transition-colors shadow-lg shadow-slate-200">
+                                📱 Consultar Visita Comercial
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        function sendWhatsApp(productName) {
+            const phone = "5491122334455"; // TU NÚMERO
+            const msg = encodeURIComponent(`¡Hola EQUIPOALDIA! Soy comerciante y consulto disponibilidad para una visita comercial por el equipo *${productName}* bajo la modalidad de cuota diaria presencial.`);
+            window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+        }
+
+        // Ejecución al cargar el documento
+        document.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
+</body>
+</html>
