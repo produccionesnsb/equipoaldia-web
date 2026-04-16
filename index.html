@@ -3,33 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EQUIPOALDIA | Vidriera Digital para Comercios</title>
+    <title>EquipoAlDía | Vidriera Digital para Comercios</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
        .product-card { transition: all 0.3s ease; }
        .product-card:hover { transform: translateY(-5px); }
+        /* Nuevos estilos para la lupa y el modal */
+        .zoom-cursor { cursor: zoom-in; }
+        #imageModal { display: none; }
+        #imageModal.active { display: flex; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
-            <div class="text-2xl font-black text-blue-700 tracking-tighter">EQUIPOALDIA</div>
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-green-100">
+        <div class="max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
+<a href="#" class="flex items-center">
+    <img src="img/logo.jpg" alt="EQUIPOALDIA Logo" class="h-14 md:h-20 w-auto object-contain">
+</a>
             <div class="hidden md:flex space-x-6">
-                <a href="#catalogo" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Equipos Disponibles</a>
-                <a href="#contacto" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Contacto</a>
+                <a href="#catalogo" class="text-sm font-semibold text-slate-600 hover:text-green-600 transition">Equipos Disponibles</a>
+                <a href="#contacto" class="text-sm font-semibold text-slate-600 hover:text-green-600 transition">Contacto</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-slate-900 py-16 px-4">
+    <header class="bg-blue-900 py-16 px-4">
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
-                Equipamiento Tecnológico <br><span class="text-blue-400">para tu Comercio</span>
+                Equipamiento Tecnológico <br><span class="text-green-400">para tu Comercio</span>
             </h1>
-            <p class="text-slate-400 text-lg mb-8">
+            <p class="text-blue-100 text-lg mb-8">
                 Accedé a los mejores equipos mediante nuestra modalidad de comodato con cuota diaria.
                 Sin trámites complejos, gestión 100% presencial en tu local comercial.
             </p>
@@ -39,8 +46,8 @@
     <section id="catalogo" class="max-w-7xl mx-auto px-4 py-16">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div>
-                <h2 class="text-3xl font-black text-slate-800 tracking-tight">Equipos en Vidriera</h2>
-                <p class="text-slate-500">Disponibilidad sujeta a zona de cobertura y verificación comercial presencial.</p>
+                <h2 class="text-3xl font-black text-blue-800 tracking-tight">Equipos en Vidriera</h2>
+                <p class="text-slate-500">Disponibilidad sujeta a zona de cobertura y verificación comercial presencial. En todos los articulos publicados se trata de 30 cuotas diarias consecutivas </p>
             </div>
         </div>
 
@@ -48,100 +55,104 @@
             </div>
     </section>
 
-    <footer id="contacto" class="bg-slate-900 text-white py-16">
+    <div id="imageModal" class="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4" onclick="closeModal()">
+        <span class="absolute top-5 right-5 text-white text-4xl font-bold cursor-pointer">&times;</span>
+        <img id="modalImg" src="" class="max-w-full max-h-full rounded-lg shadow-2xl object-contain">
+    </div>
+
+    <footer id="contacto" class="bg-blue-950 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="text-2xl font-black mb-4">EQUIPOALDIA</div>
-            <p class="text-slate-400 text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
+            <div class="text-2xl font-black mb-4 text-green-400">EQUIPOALDIA</div>
+            <p class="text-blue-200 text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
                 Esta plataforma funciona exclusivamente como una <strong>vidriera digital informativa B2B</strong>.
                 Las imágenes y montos son de carácter ilustrativo. La entrega de equipos se realiza bajo modalidad de comodato, 
                 sujeta a la firma de contrato físico presencial. No se realizan ventas a particulares ni cobros online.
             </p>
-            
-            <div class="mb-8 flex justify-center">
-                <div class="w-16 h-20 bg-slate-800 rounded border border-dashed border-slate-700 flex items-center justify-center italic text-[8px] text-slate-500">QR ARCA</div>
-            </div>
 
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 italic">
-                <p>© 2026 EQUIPOALDIA - Quilmes, Buenos Aires.</p>
-                <p>Servicio exclusivo para Comercios y Emprendedores.</p>
+            <div class="mb-8 flex justify-center">
+                <img src="img/dataweb.jpg" alt="Código QR de Clave Fiscal y ARCA" class="w-16 h-20 rounded border border-dashed border-blue-700 italic text-[8px] text-blue-300">
+            </div>
+            
+            <div class="border-t border-blue-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-blue-400 italic">
+                <p>© 2026 EQUIPOALDIA - Buenos Aires.</p>
+                <p>Servicio exclusivo para Comercios con local a la calle.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Array de productos corregido y unificado
         const products = [
             {
-                imagen: "https://via.placeholder.com/400x300?text=Celular+Motorola",
-                nombre: "Motorola Moto G54",
+                imagen: "img/moto-g05.jpg",
+                nombre: "Motorola Moto G05",
                 desc: "Equipo ágil para gestionar WhatsApp Business y redes de tu local.",
                 label1: "Almacenamiento", spec1: "128 GB",
                 label2: "Memoria RAM", spec2: "4 GB",
-                label3: "Conectividad", spec3: "5G",
-                cuotaDiaria: 1800
+                label3: "Procesador", spec3: "8 nucleos 2.0 Ghz",
+                cuotaDiaria: 12000
             },
             {
-                imagen: "https://via.placeholder.com/400x300?text=Celular+Samsung",
-                nombre: "Samsung Galaxy A15",
-                desc: "Ideal para cobros con aplicaciones y manejo de inventario.",
-                label1: "Pantalla", spec1: "6.5\" Super AMOLED",
-                label2: "Batería", spec2: "5000 mAh",
-                label3: "Cámara", spec3: "50 MP",
-                cuotaDiaria: 2100
+                imagen: "img/samsung-a17.jpg",
+                nombre: "Samsung Galaxy A17",
+                desc: "Ideal para cobros con aplicaciones y manejo de inventario. Increible velocidad",
+                label1: "Almacenamiento", spec1: "256 GB",
+                label2: "Memoria RAM", spec2: "8 GB",
+                label3: "Procesador", spec3: "8 nucleos 2.4 Ghz",
+                cuotaDiaria: 21000
             },
             {
-                imagen: "https://via.placeholder.com/400x300?text=Contadora+de+Billetes",
+                imagen: "img/contadora.jpg",
                 nombre: "Contadora de Billetes Pro",
                 desc: "Agilizá el cierre de caja y evitá errores humanos al contar el efectivo.",
                 label1: "Velocidad", spec1: "1000 u/min",
                 label2: "Detección", spec2: "UV / MG / IR",
                 label3: "Bandeja", spec3: "200 billetes",
-                cuotaDiaria: 1200
+                cuotaDiaria: 4000
             },
             {
-                imagen: "https://via.placeholder.com/400x300?text=Freidora+Electrica",
-                nombre: "Freidora Industrial 8L",
+                imagen: "img/freidora.jpg",
+                nombre: "Freidora Industrial Moretti",
                 desc: "Perfecta para sumar opciones rápidas en tu emprendimiento gastronómico.",
-                label1: "Capacidad", spec1: "8 Litros",
-                label2: "Potencia", spec2: "2500 W",
-                label3: "Material", spec3: "Acero Inox.",
-                cuotaDiaria: 1500
+                label1: "Capacidad", spec1: "11 Litros",
+                label2: "Temperatura", spec2: "ajustable hasta 200°C",
+                label3: "Material", spec3: "Acero Inoxidable",
+                cuotaDiaria: 13500
             },
             {
-                imagen: "https://via.placeholder.com/400x300?text=Cafetera+Express",
-                nombre: "Cafetera Express Comercial",
-                desc: "Aumentá el ticket promedio ofreciendo café de calidad a tus clientes.",
-                label1: "Presión", spec1: "15 Bares",
-                label2: "Capacidad Agua", spec2: "1.5 Litros",
-                label3: "Vaporizador", spec3: "Sí",
-                cuotaDiaria: 1900
+                imagen: "img/cafetera.jpg",
+                nombre: "Cafetera Smartlife Ecg5020 Expresso Molinillo",
+                desc: "gastronómicos, bares, oficinas. Calidad de bar en formato compacto.",
+                label1: "Tipo molinillo", spec1: "Cónico Integrado,30 Ajustes de Molienda",
+                label2: "Sistema de calientamiento", spec2: "Dual Fast-Heating",
+                label3: "Manómetro", spec3: "Presión en Tiempo Real para un mejor control",
+                cuotaDiaria: 27000
             },
             {
-                imagen: "https://via.placeholder.com/400x300?text=Caja+Registradora",
+                imagen: "img/registradora.jpg",
                 nombre: "Caja Registradora Térmica",
                 desc: "Control total de tus ventas diarias con impresión rápida de tickets.",
-                label1: "Impresión", spec1: "Térmica 58mm",
-                label2: "Departamentos", spec2: "Hasta 16",
-                label3: "Cajón dinero", spec3: "Incluido",
-                cuotaDiaria: 1300
+                label1: "Almacen.de codigos", spec1: "más de 10,000 códigos PLU.",
+                label2: "Homologacion", spec2: "RG AFIP 4191-E/18.",
+                label3: "Adaptaciones", spec3: "Soporta conexión de escáner y balanza.",
+                cuotaDiaria: 32000
             },
             {
-                imagen: "https://via.placeholder.com/400x300?text=Lector+de+Barras",
+                imagen: "img/codigobarras.jpg",
                 nombre: "Kit Lector Código de Barras",
-                desc: "Optimizá el tiempo de cobro en mostrador con lectura láser precisa.",
-                label1: "Conexión", spec1: "USB Inalámbrico",
-                label2: "Velocidad", spec2: "300 scans/seg",
-                label3: "Soporte", spec3: "Incluido",
-                cuotaDiaria: 600
+                desc: "Escaneo rápido y preciso para agilizar ventas e inventario.",
+                label1: "Conexión", spec1: "USB sin software extra",
+                label2: "Lectura codigos", spec2: "1D/2D/QR incluso pantallas",
+                label3: "Tipo de impresion", spec3: "Térmica 58 MM Usb Golbal",
+                cuotaDiaria: 10000
             },
             {
-                imagen: "https://via.placeholder.com/400x300?text=Balanza+Comercial",
+                imagen: "img/balanza.jpg",
                 nombre: "Balanza Comercial Digital",
-                desc: "Pesaje exacto para despensas, verdulerías o fiambrerías.",
-                label1: "Capacidad Max", spec1: "40 Kg",
-                label2: "Precisión", spec2: "5 Gramos",
-                label3: "Funciones", spec3: "Suma / Tara",
-                cuotaDiaria: 950
+                desc: "SYSTEL, la favorita de los comerciantes.",
+                label1: "Capacidad Max", spec1: "31 Kg",
+                label2: "Cantidad de memorias", spec2: "200",
+                label3: "Funciones", spec3: "avanzadas como acumulación y cálculo de cambio",
+                cuotaDiaria: 15000
             }
         ];
 
@@ -152,28 +163,28 @@
             products.forEach(p => {
                 const card = `
                     <div class="product-card bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden flex flex-col">
-                        <div class="h-48 bg-slate-200 overflow-hidden">
-                            <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover">
+                        <div class="h-48 bg-slate-200 overflow-hidden zoom-cursor" onclick="openModal('${p.imagen}')">
+                            <img src="${p.imagen}" alt="${p.nombre}" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                         </div>
                         <div class="p-5 flex-grow">
-                            <h3 class="font-bold text-slate-800 text-lg mb-1">${p.nombre}</h3>
+                            <h3 class="font-bold text-blue-900 text-lg mb-1">${p.nombre}</h3>
                             <p class="text-slate-500 text-xs mb-4 leading-relaxed">${p.desc}</p>
                             <div class="space-y-2 mb-5">
-                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-1">Detalles Técnicos</p>
+                                <p class="text-[10px] font-bold text-green-600 uppercase tracking-widest border-b border-green-50 pb-1">Detalles Técnicos</p>
                                 <div class="grid grid-cols-1 gap-1 text-xs text-slate-600">
-                                    <div class="flex justify-between"><span>${p.label1}</span><span>${p.spec1}</span></div>
-                                    <div class="flex justify-between"><span>${p.label2}</span><span>${p.spec2}</span></div>
-                                    <div class="flex justify-between"><span>${p.label3}</span><span>${p.spec3}</span></div>
+                                    <div class="flex justify-between"><span>${p.label1}</span><span class="font-semibold text-blue-700">${p.spec1}</span></div>
+                                    <div class="flex justify-between"><span>${p.label2}</span><span class="font-semibold text-blue-700">${p.spec2}</span></div>
+                                    <div class="flex justify-between"><span>${p.label3}</span><span class="font-semibold text-blue-700">${p.spec3}</span></div>
                                 </div>
                             </div>
-                            <div class="bg-blue-50 py-4 rounded-xl border border-blue-100 text-center">
-                                <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">Cuota Diaria Fija</p>
-                                <p class="text-4xl font-black text-slate-900">$${p.cuotaDiaria.toLocaleString('es-AR')}</p>
-                                <p class="text-[10px] text-slate-500 mt-2 italic px-2 font-medium uppercase text-center">Exclusivo Comercios - Gestión en Local</p>
+                            <div class="bg-green-50 py-4 rounded-xl border border-green-100 text-center">
+                                <p class="text-[10px] font-bold text-green-700 uppercase tracking-widest mb-1">Cuota Diaria Fija</p>
+                                <p class="text-4xl font-black text-blue-900">$${p.cuotaDiaria.toLocaleString('es-AR')}</p>
+                                <p class="text-[10px] text-green-600 mt-2 italic px-2 font-medium uppercase text-center">Exclusivo Comercios - Gestión en Local</p>
                             </div>
                         </div>
                         <div class="p-5 pt-0">
-                            <button onclick="sendWhatsApp('${p.nombre}')" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                            <button onclick="sendWhatsApp('${p.nombre}')" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-sm hover:bg-blue-700 transition flex items-center justify-center gap-2">
                                 📱 Consultar Visita Comercial
                             </button>
                         </div>
@@ -183,14 +194,27 @@
             });
         }
 
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = imgSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         function sendWhatsApp(productName) {
-            const phone = "5491122334455"; // ACORDATE DE PONER TU NÚMERO REAL AQUÍ
+            const phone = "5491173717710"; 
             const msg = encodeURIComponent(`Hola EQUIPOALDIA! Soy comerciante y consulto disponibilidad para una visita comercial por el equipo *${productName}* bajo la modalidad de cuota diaria presencial.`);
             window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
         }
 
-        // Ejecutar al cargar la página
-        window.onload = renderProducts;
+        renderProducts();
     </script>
 </body>
 </html>
